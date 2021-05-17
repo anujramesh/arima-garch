@@ -12,7 +12,7 @@ There are no considerations of slippage, transaction costs, etc. taken into acco
 - We loop through each trading day to find an approrpiate ARIMA and GARCH model for the rolling window of length `k` (500 in this case)
 - The `arimaFit` is wrapped into the try/catch block to ensure that if a fit is not found for a paricular value of p and q, it ignores it and moves on to the next combination of p and q
 - The mean takes on an ARMA(p,q) model, whereas the variance takes on a GARCH(1,1) model, and the skewed generalized error distribution (sged) is used for the errors
-- the forecasts are written into a csv file
+- The forecasts are written into a csv file
 
 We cannot simply use the csv file we generated from our implementation to do any backtesting: The file contains predictions for "tomorrow's" direction. This introduces a look-ahead bias as the prediction value would use data not known ahead of time. We use `script.py` to remove this bias.
 
