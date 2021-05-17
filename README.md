@@ -8,7 +8,7 @@ There are no considerations of slippage, transaction costs, etc. taken into acco
 
 ## Implementation
 - The `quantmod` R package is used to retrieve data from 2018-01-01 to 2021-05-14 (the last trading day available at the time of this writing)
-- A vector, `forecasts`, created to store forecast values for particular dates
+- A vector, `forecasts`, is created to store forecast values for particular dates
 - We loop through each trading day to find an approrpiate ARIMA and GARCH model for the rolling window of length `k` (500 in this case)
 - The `arimaFit` is wrapped into the try/catch block to ensure that if a fit is not found for a paricular value of p and q, it ignores it and moves on to the next combination of p and q
 - The mean takes on an ARMA(p,q) model, whereas the variance takes on a GARCH(1,1) model, and the skewed generalized error distribution (sged) is used for the errors
