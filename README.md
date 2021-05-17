@@ -14,15 +14,13 @@ There are no considerations of slippage, transaction costs, etc. taken into acco
 - The mean takes on an ARMA(p,q) model, whereas the variance takes on a GARCH(1,1) model, and the skewed generalized error distribution (sged) is used for the errors
 - the forecasts are written into a csv file
 
-## Comparing ARIMA+GARCH with Buy-and-Hold
 We cannot simply use the csv file we generated from our implementation to do any backtesting: The file contains predictions for "tomorrow's" direction. This introduces a look-ahead bias as the prediction value would use data not known ahead of time. We use `script.py` to remove this bias.
 
-- After that is done, we can compare it with Buy-and-Hold
-- Over the roughly 1.5 year period, the ARIMA+GARCH strategy has significantly outperformed Buy-and-Hold
-- Most of the gains were realized during March/April 2020, when the S&P500 had just started to bounce back after losing a considerable portion of its value the month prior
+## Comparing ARIMA+GARCH with Buy-and-Hold
+- Over the approximate 1.5 year period, the ARIMA+GARCH strategy has significantly outperformed Buy-and-Hold
+- Most of the gains were realized during March/April 2020, when the S&P500 had just started to bounce back after losing a considerable portion of its value the months prior
 
 <img src="./Rplot.png" alt="alt text" width="1000">
-
 
 ## References
 https://www.quantstart.com/articles/ARIMA-GARCH-Trading-Strategy-on-the-SP500-Stock-Market-Index-Using-R/
