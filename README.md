@@ -1,6 +1,6 @@
 # ARIMA+GARCH Trading Strategy on S&P500 
 ## Strategy
-1. For each day `n`, the previous k days of the differenced log returns of a stock market index are used as a window for fitting an optimal ARIMA and GARCH model.
+1. For each day n, the previous k days of the differenced log returns of a stock market index are used as a window for fitting an optimal ARIMA and GARCH model.
 2. The combined model used to make a prediction for the next day returns.
 3. We will long the position if the prediction is 1 (positive), short if the prediction is -1 (negative)
 
@@ -18,7 +18,11 @@ There are no considerations of slippage, transaction costs, etc. taken into acco
 We cannot simply use the csv file we generated from our implementation to do any backtesting: The file contains predictions for "tomorrow's" direction. This introduces a look-ahead bias as the prediction value would use data not known ahead of time. We use `script.py` to remove this bias.
 
 - After that is done, we can compare it with Buy-and-Hold
+- Over the roughly 1.5 year period, the ARIMA+GARCH strategy has significantly outperformed Buy-and-Hold
+- Most of the gains were realized during March/April 2020, when the S&P500 had just started to bounce back after losing a considerable portion of its value the month prior
 
-- 
+<img src="./Rplot.png" alt="alt text" width="1000">
+
+
 ## References
 https://www.quantstart.com/articles/ARIMA-GARCH-Trading-Strategy-on-the-SP500-Stock-Market-Index-Using-R/
